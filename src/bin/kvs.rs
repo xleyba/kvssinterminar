@@ -4,10 +4,10 @@ use clap::{App, AppSettings, Arg, SubCommand};
 use std::process::exit;
 
 fn main() {
-    let matches = App::new("Kvs")
-        .version("0.1.0")
-        .author("Javier")
-        .about("Does awesome things")
+    let matches = App::new(env!("CARGO_PKG_NAME"))
+        .version(env!("CARGO_PKG_VERSION"))
+        .author(env!("CARGO_PKG_AUTHORS"))
+        .about(env!("CARGO_PKG_DESCRIPTION"))
         .setting(AppSettings::SubcommandRequiredElseHelp)
         .subcommand(
             SubCommand::with_name("get")
