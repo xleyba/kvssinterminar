@@ -1,24 +1,26 @@
-
+use std::collections::HashMap;
 
 #[derive(Debug)]
-pub struct KvStore {}
+pub struct KvStore {
+    store: HashMap<String, String>,
+}
 
 impl KvStore {
     pub fn new() -> Self { 
         KvStore {
-
+            store: HashMap::new(),
         }
     }
 
     pub fn set(&mut self, key: String, value: String) {
-        panic!();
+        self.store.insert(key, value);
     }
 
     pub fn get(&mut self, key: String) -> Option<String> {
-        Some(String::from("algo"))
+        self.store.get(&key).cloned()
     }
 
     pub fn remove(&mut self, key: String) {
-        panic!();
+        self.store.remove(&key);
     }
 }
